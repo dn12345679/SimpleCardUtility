@@ -1,0 +1,402 @@
+[gd_scene load_steps=8 format=3 uid="uid://ch830fr6cehnu"]
+
+[ext_resource type="Texture2D" uid="uid://dnot7sivhq1oc" path="res://Assets/PokerTable.png" id="1_eqixb"]
+[ext_resource type="Script" path="res://Scripts/MainHandler.cs" id="1_pm8ev"]
+[ext_resource type="FontFile" uid="uid://chvocnnxc0y3x" path="res://Assets/balatro.otf" id="2_4prea"]
+[ext_resource type="Script" path="res://Scripts/MainScreen.cs" id="2_krdbe"]
+[ext_resource type="Texture2D" uid="uid://ba5wjiv2p5axd" path="res://Assets/1.2 Poker cards.png" id="3_o107l"]
+[ext_resource type="Texture2D" uid="uid://c2gv8fs23hfl8" path="res://Assets/pokerchip.png" id="4_l3tg8"]
+[ext_resource type="Script" path="res://Scripts/RulesetHandler.cs" id="6_5ibof"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pm8ev")
+
+[node name="PokerTable" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_eqixb")
+metadata/_edit_lock_ = true
+
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("MainHandler")]
+visible = false
+anchors_preset = 0
+offset_right = 968.0
+offset_bottom = 648.0
+script = ExtResource("2_krdbe")
+MainHandler = NodePath("..")
+
+[node name="SimpleCardUtility" type="RichTextLabel" parent="MainScreen"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 264.0
+offset_top = 128.0
+offset_right = 736.0
+offset_bottom = 200.0
+theme_override_fonts/normal_font = ExtResource("2_4prea")
+theme_override_font_sizes/normal_font_size = 50
+text = "Simple Card Utility"
+
+[node name="OneDeck" type="Control" parent="MainScreen"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 360.0
+offset_right = 328.0
+offset_bottom = 400.0
+
+[node name="RedDeck" type="Sprite2D" parent="MainScreen/OneDeck"]
+texture_filter = 3
+position = Vector2(16, 8)
+rotation = 0.0013535
+scale = Vector2(2, 2)
+texture = ExtResource("3_o107l")
+region_enabled = true
+region_rect = Rect2(0, 256, 48, 64)
+
+[node name="Button" type="Button" parent="MainScreen/OneDeck"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -24.0
+offset_top = 8.0
+offset_right = 59.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_4prea")
+text = "One Deck"
+
+[node name="TwoDeck" type="Control" parent="MainScreen"]
+anchors_preset = 0
+offset_left = 632.0
+offset_top = 368.0
+offset_right = 672.0
+offset_bottom = 408.0
+metadata/_edit_group_ = true
+
+[node name="RedDeck" type="Sprite2D" parent="MainScreen/TwoDeck"]
+texture_filter = 3
+position = Vector2(-64, 0)
+rotation = -0.196951
+scale = Vector2(2, 2)
+texture = ExtResource("3_o107l")
+region_enabled = true
+region_rect = Rect2(0, 256, 48, 64)
+
+[node name="BlueDeck" type="Sprite2D" parent="MainScreen/TwoDeck"]
+texture_filter = 3
+position = Vector2(104, 8)
+rotation = 0.270496
+scale = Vector2(2, 2)
+texture = ExtResource("3_o107l")
+region_enabled = true
+region_rect = Rect2(192, 256, 48, 64)
+
+[node name="Button" type="Button" parent="MainScreen/TwoDeck"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -24.0
+offset_top = 8.0
+offset_right = 59.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_4prea")
+text = "Two Deck"
+
+[node name="Ruleset" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 968.0
+offset_bottom = 648.0
+script = ExtResource("6_5ibof")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ruleset"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 272.0
+offset_top = 128.0
+offset_right = 728.0
+offset_bottom = 208.0
+theme_override_fonts/normal_font = ExtResource("2_4prea")
+theme_override_font_sizes/normal_font_size = 50
+text = "Confirm Ruleset"
+
+[node name="Ruleset" type="Control" parent="Ruleset"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 464.0
+offset_top = 296.0
+offset_right = 504.0
+offset_bottom = 336.0
+
+[node name="Pokerchip" type="Sprite2D" parent="Ruleset/Ruleset"]
+texture_filter = 3
+position = Vector2(16, -32)
+scale = Vector2(4, 4)
+texture = ExtResource("4_l3tg8")
+
+[node name="Button" type="Button" parent="Ruleset/Ruleset"]
+modulate = Color(1, 1, 0, 1)
+texture_filter = 3
+layout_mode = 0
+offset_left = -64.0
+offset_top = 24.0
+offset_right = 19.0
+offset_bottom = 55.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("2_4prea")
+text = "Confirm"
+
+[node name="Options" type="Control" parent="Ruleset"]
+anchors_preset = 0
+offset_left = 464.0
+offset_top = 448.0
+offset_right = 504.0
+offset_bottom = 488.0
+
+[node name="Option8" type="Control" parent="Ruleset/Options"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 448.0
+offset_right = 488.0
+offset_bottom = 40.0
+
+[node name="MaxStack" type="Label" parent="Ruleset/Options/Option8"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -312.0
+offset_top = 8.0
+offset_right = -192.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "InGame Coin"
+
+[node name="Button" type="Button" parent="Ruleset/Options/Option8"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -160.0
+offset_right = -104.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("2_4prea")
+text = "False"
+
+[node name="Option7" type="Control" parent="Ruleset/Options"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 520.0
+offset_top = 48.0
+offset_right = 560.0
+offset_bottom = 88.0
+
+[node name="Random" type="Label" parent="Ruleset/Options/Option7"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -384.0
+offset_top = 8.0
+offset_right = -245.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "Random Caller"
+
+[node name="Button" type="Button" parent="Ruleset/Options/Option7"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -232.0
+offset_right = -176.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_4prea")
+text = "True"
+
+[node name="Option4" type="Control" parent="Ruleset/Options"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_group_ = true
+
+[node name="BaseStack" type="Label" parent="Ruleset/Options/Option4"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -384.0
+offset_top = 8.0
+offset_right = -184.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "Starting Stack Size"
+
+[node name="TextEdit" type="TextEdit" parent="Ruleset/Options/Option4"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -176.0
+offset_right = -96.0
+offset_bottom = 40.0
+text = "2"
+placeholder_text = "2"
+
+[node name="Option3" type="Control" parent="Ruleset/Options"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 88.0
+metadata/_edit_group_ = true
+
+[node name="MaxStack" type="Label" parent="Ruleset/Options/Option3"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -384.0
+offset_top = 8.0
+offset_right = -184.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "Max Stack Size
+"
+
+[node name="TextEdit" type="TextEdit" parent="Ruleset/Options/Option3"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -176.0
+offset_right = -96.0
+offset_bottom = 40.0
+text = "12"
+placeholder_text = "12"
+
+[node name="Option2" type="Control" parent="Ruleset/Options"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 208.0
+offset_right = 248.0
+offset_bottom = 40.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Handsize" type="Label" parent="Ruleset/Options/Option2"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -280.0
+offset_top = 8.0
+offset_right = -185.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "Hand Size"
+
+[node name="TextEdit" type="TextEdit" parent="Ruleset/Options/Option2"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -176.0
+offset_right = -96.0
+offset_bottom = 40.0
+text = "8"
+placeholder_text = "8"
+
+[node name="Option" type="Control" parent="Ruleset/Options"]
+anchors_preset = 0
+offset_left = 208.0
+offset_top = 48.0
+offset_right = 248.0
+offset_bottom = 88.0
+metadata/_edit_group_ = true
+
+[node name="StackNum" type="Label" parent="Ruleset/Options/Option"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -280.0
+offset_top = 8.0
+offset_right = -185.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "Stack #"
+
+[node name="TextEdit" type="TextEdit" parent="Ruleset/Options/Option"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -176.0
+offset_right = -96.0
+offset_bottom = 40.0
+text = "4"
+placeholder_text = "4"
+
+[node name="Option5" type="Control" parent="Ruleset/Options"]
+anchors_preset = 0
+offset_left = 368.0
+offset_top = -8.0
+offset_right = 408.0
+offset_bottom = 32.0
+
+[node name="HandlList" type="ItemList" parent="Ruleset/Options/Option5"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 144.0
+offset_top = -232.0
+offset_right = 312.0
+offset_bottom = 48.0
+item_count = 10
+item_0/text = "3 of a kind"
+item_1/text = "Full House"
+item_2/text = "Straight"
+item_3/text = "Flush"
+item_4/text = "Straight Flush"
+item_5/text = "4 of a kind"
+item_5/disabled = true
+item_6/text = "Royal Flush"
+item_7/text = "5 of a kind"
+item_7/disabled = true
+item_8/text = "Flush House"
+item_8/disabled = true
+item_9/text = "Flush 5"
+item_9/disabled = true
+
+[node name="Hands" type="Label" parent="Ruleset/Options/Option5"]
+texture_filter = 3
+layout_mode = 0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "Valid Hands"
+
+[node name="Option6" type="Control" parent="Ruleset/Options"]
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 64.0
+offset_right = 520.0
+offset_bottom = 104.0
+
+[node name="Head Probability" type="Label" parent="Ruleset/Options/Option6"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -112.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "Head Prob."
+
+[node name="ProbSlider" type="HSlider" parent="Ruleset/Options/Option6"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 24.0
+value = 50.0
+
+[node name="Head Probability" type="Label" parent="Ruleset/Options/Option6/ProbSlider"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 104.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_4prea")
+theme_override_font_sizes/font_size = 20
+text = "50%"
+
+[connection signal="pressed" from="MainScreen/OneDeck/Button" to="MainScreen" method="_on_onedeck_button_pressed"]
+[connection signal="pressed" from="MainScreen/TwoDeck/Button" to="MainScreen" method="_on_twodeck_button_pressed"]
