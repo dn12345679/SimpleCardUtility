@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7n7bx8hcmjvg"]
+
+[ext_resource type="Script" path="res://Scripts/pokerhandpreset.cs" id="1_5qd6r"]
+[ext_resource type="FontFile" uid="uid://chvocnnxc0y3x" path="res://Assets/balatro.otf" id="2_o5o7i"]
+[ext_resource type="Texture2D" uid="uid://ba5wjiv2p5axd" path="res://Assets/1.2 Poker cards.png" id="2_soy5s"]
+
+[node name="Pokerhand" type="Control" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5qd6r")
+card1 = NodePath("CardImg/Sprite2D")
+card2 = NodePath("CardImg/Sprite2D2")
+card3 = NodePath("CardImg/Sprite2D3")
+card4 = NodePath("CardImg/Sprite2D4")
+card5 = NodePath("CardImg/Sprite2D5")
+
+[node name="HandName" type="Label" parent="."]
+texture_filter = 3
+layout_mode = 0
+offset_left = -8.0
+offset_top = -72.0
+offset_right = 232.0
+offset_bottom = -55.0
+theme_override_fonts/font = ExtResource("2_o5o7i")
+text = "Flush"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardImg" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CardImg"]
+texture_filter = 3
+texture = ExtResource("2_soy5s")
+region_enabled = true
+region_rect = Rect2(432, 128, 48, 64)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CardImg"]
+texture_filter = 3
+position = Vector2(56, 0)
+texture = ExtResource("2_soy5s")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 64)
+
+[node name="Sprite2D3" type="Sprite2D" parent="CardImg"]
+texture_filter = 3
+position = Vector2(112, 0)
+texture = ExtResource("2_soy5s")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 64)
+
+[node name="Sprite2D4" type="Sprite2D" parent="CardImg"]
+texture_filter = 3
+position = Vector2(168, 0)
+texture = ExtResource("2_soy5s")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 64)
+
+[node name="Sprite2D5" type="Sprite2D" parent="CardImg"]
+texture_filter = 3
+position = Vector2(224, 0)
+texture = ExtResource("2_soy5s")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 64)
+
+[node name="HandScore" type="Label" parent="."]
+texture_filter = 3
+layout_mode = 0
+offset_left = -8.0
+offset_top = 40.0
+offset_right = 232.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("2_o5o7i")
+text = "10.0"
+horizontal_alignment = 1

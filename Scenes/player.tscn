@@ -1,0 +1,349 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv3enjoavac6y"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_khr3i"]
+[ext_resource type="Texture2D" uid="uid://by8nc3duaj8n3" path="res://Assets/pokerchipset.png" id="2_2xsta"]
+[ext_resource type="FontFile" uid="uid://chvocnnxc0y3x" path="res://Assets/balatro.otf" id="3_ki71t"]
+
+[node name="Player" type="Control" node_paths=PackedStringArray("handList")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_khr3i")
+handList = NodePath("Actions/Handplayed")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(4, 4)
+texture = ExtResource("2_2xsta")
+region_enabled = true
+region_rect = Rect2(35, 3, 26, 26)
+
+[node name="Name" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = -70.0
+offset_top = -109.0
+offset_right = 72.0
+offset_bottom = -56.0
+text = "Player1"
+
+[node name="Actions" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Handplayed" type="Control" parent="Actions"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="3oak" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/3oak"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/3oak"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/3oak"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 20.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "3oak"
+
+[node name="straight" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 80.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/straight"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/straight"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/straight"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -34.0
+offset_top = 68.0
+offset_right = 35.0
+offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "straight"
+
+[node name="flush" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 120.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/flush"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/flush"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/flush"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 20.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "flush"
+
+[node name="fullhouse" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 120.0
+offset_right = 40.0
+offset_bottom = 160.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/fullhouse"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/fullhouse"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/fullhouse"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -40.0
+offset_top = 67.0
+offset_right = 38.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "full house"
+
+[node name="straightflush" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 160.0
+offset_right = 40.0
+offset_bottom = 200.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/straightflush"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/straightflush"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/straightflush"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -33.0
+offset_top = 59.0
+offset_right = 36.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "straight flush"
+autowrap_mode = 3
+
+[node name="royalflush" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 200.0
+offset_right = 40.0
+offset_bottom = 240.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/royalflush"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/royalflush"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/royalflush"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -27.0
+offset_top = 58.0
+offset_right = 31.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "royal flush"
+autowrap_mode = 3
+
+[node name="4oak" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 240.0
+offset_right = 40.0
+offset_bottom = 280.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/4oak"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/4oak"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/4oak"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 20.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "4oak"
+
+[node name="5oak" type="Control" parent="Actions/Handplayed"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 280.0
+offset_right = 40.0
+offset_bottom = 320.0
+
+[node name="Button" type="Button" parent="Actions/Handplayed/5oak"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 95.0
+text = "+1
+"
+
+[node name="Button2" type="Button" parent="Actions/Handplayed/5oak"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 64.0
+offset_right = -43.0
+offset_bottom = 95.0
+text = "-1"
+
+[node name="Label" type="Label" parent="Actions/Handplayed/5oak"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 20.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+text = "5oak"
+
+[node name="Button" type="Button" parent="Actions"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 390.0
+offset_right = 17.0
+offset_bottom = 421.0
+text = "Skip"
+
+[node name="Information" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="Information"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -39.0
+offset_top = 57.0
+offset_right = 46.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+theme_override_font_sizes/font_size = 30
+text = "Score"
+
+[node name="Label" type="Label" parent="Information"]
+texture_filter = 3
+layout_mode = 0
+offset_left = -21.0
+offset_top = 98.0
+offset_right = 30.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("3_ki71t")
+theme_override_font_sizes/font_size = 20
+text = "2,300"
